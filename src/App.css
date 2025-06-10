@@ -1,0 +1,44 @@
+/* src/App.css */
+
+/* 1) Make html/body/root fill the viewport */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 2) Optional wrapper if you want to center or add padding */
+.pdf-container {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  /* If you ever want to add side padding or center: */
+  /* padding: 16px;         */
+  /* display: flex;         */
+  /* justify-content: center; */
+  /* align-items: center;    */
+}
+
+/* 3) The <iframe> that shows Chrome’s PDF-UI */
+.pdf-frame {
+  width: 100%;
+  height: 100vh;      /* fill entire viewport vertically */
+  border: none;       /* remove iframe border */
+  /* 
+    If you want a max-width on large screens, uncomment these:
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  */
+}
+
+/* 4) (Optional) If you cap max-width and center, the iframe will never exceed 800px */
+@media (min-width: 800px) {
+  .pdf-frame {
+    /* Uncomment to center+cap on desktops */
+    /* max-width: 800px; */
+    /* margin: 0 auto;  */
+  }
+}
