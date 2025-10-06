@@ -39,8 +39,9 @@ export default function App() {
 				initialScale={1}
 				minScale={0.5}
 				maxScale={4}
-				centerOnInit={true}
+				centerOnInit={true}  // Add this
 			>
+
 				{({ zoomIn, zoomOut, resetTransform }) => (
 					<>
 						<div style={{
@@ -67,10 +68,10 @@ export default function App() {
 								width: "100%",
 								height: "100%",
 								display: "flex",
-								alignItems: "flex-start",
-								justifyContent: "center",
-								paddingTop: "20px" // Add some padding from top
+								alignItems: "center",      // Centers vertically
+								justifyContent: "center",  // Centers horizontally
 							}}
+
 						>
 							{/* PDF Container - this is the key addition */}
 							<div style={{
