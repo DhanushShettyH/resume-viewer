@@ -12,7 +12,7 @@ export default function App() {
 	const [numPages, setNumPages] = useState(null);
 	const [zoom, setZoom] = useState(1); // current zoom from TransformWrapper
 	const [pageSize, setPageSize] = useState({ width: 595, height: 842 }); // A4 default in pt (PDF points)
-	const [useSvg, setUseSvg] = useState(false); // toggle SVG rendering for vector-sharp zoom
+	const [useSvg, setUseSvg] = useState(true); // toggle SVG rendering for vector-sharp zoom
 
 	const handleDownload = () => {
 		const link = document.createElement("a");
