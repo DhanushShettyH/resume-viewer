@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-import 'react-pdf/dist/Page/AnnotationLayer.css'; // <---- IMPORTANT!
+import 'react-pdf/dist/Page/AnnotationLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 	"pdfjs-dist/build/pdf.worker.min.mjs",
@@ -59,27 +59,41 @@ export default function App() {
 
 						<TransformComponent
 							wrapperStyle={{
-								width: "100%",
-								height: "100vh"
+								width: "100vw",
+								height: "100vh",
+								background: "#1a1a1a",
 							}}
 							contentStyle={{
-								width: "100%"
+								width: "100%",
+								height: "100%",
+								display: "flex",
+								alignItems: "flex-start",
+								justifyContent: "center",
+								paddingTop: "20px" // Add some padding from top
 							}}
 						>
-							<Document
-								file="/Resume-Dhanush-2.pdf"
-								onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-							>
-								{Array.from(new Array(numPages), (el, index) => (
-									<Page
-										key={`page_${index + 1}`}
-										pageNumber={index + 1}
-										width={window.innerWidth > 768 ? 800 : window.innerWidth - 20}
-										renderTextLayer={false}
-										renderAnnotationLayer={true}    // <-- make links clickable
-									/>
-								))}
-							</Document>
+							{/* PDF Container - this is the key addition */}
+							<div style={{
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								gap: "10px" // Space between pages
+							}}>
+								<Document
+									file="/Resume-Dhanush-2.pdf"
+									onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+								>
+									{Array.from(new Array(numPages), (el, index) => (
+										<Page
+											key={`page_${index + 1}`}
+											pageNumber={index + 1}
+											width={Math.min(window.innerWidth * 0.7, 800)}
+											renderTextLayer={false}
+											renderAnnotationLayer={true}
+										/>
+									))}
+								</Document>
+							</div>
 						</TransformComponent>
 					</>
 				)}
