@@ -16,8 +16,8 @@ export default function App() {
 
 	const handleDownload = () => {
 		const link = document.createElement("a");
-		link.href = "/Resume-Dhanush-2.pdf";
-		link.download = "Resume-Dhanush-2.pdf";
+		link.href = "/Resume-Dhanush-1.pdf";
+		link.download = "Resume-Dhanush-1.pdf";
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
@@ -93,7 +93,7 @@ export default function App() {
 								}}
 							>
 								<Document
-									file="/Resume-Dhanush-2.pdf"
+									file="/Resume-Dhanush-1.pdf"
 									onLoadSuccess={({ numPages, _pdfInfo }) => {
 										setNumPages(numPages);
 										// Try to infer first page size in pt when available
